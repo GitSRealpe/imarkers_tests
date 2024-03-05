@@ -1,0 +1,6 @@
+string robot_name
+string marker_name
+std_msgs/ColorRGBA marker_color
+geometry_msgs/Point marker_position
+string instruction_type
+iauv_commander_msgs/Params[] params

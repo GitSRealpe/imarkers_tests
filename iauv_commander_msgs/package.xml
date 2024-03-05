@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>iauv_commander_msgs</name>
+  <version>1.13.1</version>
+  <description>
+    iauv_commander_msgs provides messages for the iauv_commander pkg
+  </description>
+  <maintainer email="srealper@udg.edu">SRealpe</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+  <export>
+    <architecture_independent/>
+  </export>
+</package>
