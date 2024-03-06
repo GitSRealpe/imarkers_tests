@@ -3,11 +3,11 @@ authors: ''
 brief: ''
 bugtracker: ''
 depends:
-- catkin
-- std_msgs
 - message_runtime
 - geometry_msgs
+- std_msgs
 - message_generation
+- catkin
 description: iauv_commander_msgs provides messages for the iauv_commander pkg
 license: BSD
 maintainers: SRealpe <srealper@udg.edu>
