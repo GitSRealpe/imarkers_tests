@@ -29,7 +29,6 @@ int main(int argc, char **argv)
 {
     std::cout << "best print 2024\n";
 
-    std::cout << "yeah rvizing\n";
     ros::init(argc, argv, "iauv_commander_main");
     ros::NodeHandle nh;
 
