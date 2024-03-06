@@ -1,0 +1,20 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: ''
+depends:
+- catkin
+- std_msgs
+- message_runtime
+- geometry_msgs
+- message_generation
+description: iauv_commander_msgs provides messages for the iauv_commander pkg
+license: BSD
+maintainers: SRealpe <srealper@udg.edu>
+msgs:
+- Instruction
+- Params
+package_type: package
+repo_url: ''
+srvs: []
+url: ''
