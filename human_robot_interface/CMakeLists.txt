@@ -59,7 +59,7 @@ list(APPEND LIBRARIES
 # target_link_libraries(main ${catkin_LIBRARIES} ${PROJECT_NAME})
 
 add_executable(main scripts/main.cpp)
-set_target_properties(main PROPERTIES OUTPUT_NAME hri_main PREFIX "")
+set_target_properties(main PROPERTIES OUTPUT_NAME main PREFIX "")
 target_link_libraries(main ${LIBRARIES})
 
 # catkin_install_python(PROGRAMS
