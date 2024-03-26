@@ -20,7 +20,7 @@ In a linux terminal, execute
 5. `source devel/setup.bash`
 6. ***Terminal 1***: `roscore`
 7. ***Terminal 2***: `rosrun iauv_commander main`
-8. ***Terminal 3***: `rosrun human_robot_interface main`
+8. ***Terminal 3***: `roslaunch human_robot_interface hmi.launch`
 9. ***Terminal 2*** should print `received instruction "goal1" of type: grab`
 
 Given this, if any interface publishes a [visualization_msgs/InteractiveMarkerFeedback](http://docs.ros.org/en/noetic/api/visualization_msgs/html/msg/InteractiveMarkerFeedback.html) message to the `iauv_commander/marker_server/feedback` topic, ***Terminal 2*** should output said feeback.
