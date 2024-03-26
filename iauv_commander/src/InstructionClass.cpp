@@ -9,12 +9,12 @@ namespace iauv_commander
     }
     InstructionClass::InstructionClass(iauv_commander_msgs::InstructionConstPtr msg, std::shared_ptr<interactive_markers::InteractiveMarkerServer> server) : server_(server), msg_(msg)
     {
-        std::cout << "Defining InstructionClass of type {\" ? \"}\n";
+        std::cout << "Defining InstructionClass of type {\"" << msg_->instruction_type << "\"}\n";
     }
 
     void InstructionClass::createMarker(bool x_mov, bool y_mov, bool z_mov, bool x_rot, bool y_rot, bool z_rot)
     {
-        std::cout << "creando marcador\n";
+        std::cout << "creando marker\n";
         // control_ = visualization_msgs::InteractiveMarkerControl();
         int_marker_.header.frame_id = "world_ned";
         int_marker_.pose.position.x = msg_->marker_position.x;
