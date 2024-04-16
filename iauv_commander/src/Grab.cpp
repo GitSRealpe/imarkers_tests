@@ -22,10 +22,11 @@ namespace iauv_commander
         feedback->client_id;
     }
 
-    Grab::Grab(iauv_commander_msgs::InstructionConstPtr msg, std::shared_ptr<interactive_markers::InteractiveMarkerServer> server) : iauv_commander::InstructionClass(msg, server)
+    Grab::Grab(iauv_commander_msgs::InstructionConstPtr msg, std::shared_ptr<interactive_markers::InteractiveMarkerServer> server, ros::NodeHandle &nh) : iauv_commander::InstructionClass(msg, server, nh)
     {
         std::cout << "done by param constructor\n";
 
+        visualization_msgs::InteractiveMarker int_marker = createMarker(true, true, true, true, true, true);
         // control marker for mesh
         visualization_msgs::InteractiveMarkerControl control;
         control.interaction_mode = visualization_msgs::InteractiveMarkerControl::NONE;
@@ -40,12 +41,10 @@ namespace iauv_commander
         marker.color = msg->marker_color;
         marker.color.a = 1;
         control.markers.push_back(marker);
-        int_marker_.controls.push_back(control);
+        int_marker.controls.push_back(control);
+        int_marker.scale = 0.3;
 
-        createMarker(true, true, true, true, true, true);
-        int_marker_.scale = 0.3;
-
-        server_->insert(int_marker_, boost::bind(&Grab::markerFeedback, this, _1));
+        server_->insert(int_marker, boost::bind(&Grab::markerFeedback, this, _1));
 
         // 'commit' changes and send to all clients
         server_->applyChanges();

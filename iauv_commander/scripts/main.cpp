@@ -9,6 +9,7 @@
 #include <iauv_commander/Moveto.h>
 #include <iauv_commander/Grab.h>
 
+std::shared_ptr<ros::NodeHandle> nhptr;
 std::shared_ptr<interactive_markers::InteractiveMarkerServer> server;
 
 void instructionCB(const iauv_commander_msgs::InstructionConstPtr &msg)
@@ -17,11 +18,11 @@ void instructionCB(const iauv_commander_msgs::InstructionConstPtr &msg)
     if (msg->instruction_type == "moveto")
     {
         // pass the rviz marker server and do magic
-        iauv_commander::Moveto(msg, server);
+        iauv_commander::Moveto(msg, server, *nhptr);
     }
     if (msg->instruction_type == "grab")
     {
-        iauv_commander::Grab(msg, server);
+        iauv_commander::Grab(msg, server, *nhptr);
     }
 }
 
@@ -29,11 +30,13 @@ int main(int argc, char **argv)
 {
     std::cout << "best print 2024\n";
 
+    std::cout << "yeah rvizing\n";
     ros::init(argc, argv, "iauv_commander_main");
     ros::NodeHandle nh;
+    // *nhptr = nh;
+    nhptr = std::make_shared<ros::NodeHandle>(nh);
 
-    // server.reset(new interactive_markers::InteractiveMarkerServer("rviz_interface"));
-    server = std::shared_ptr<interactive_markers::InteractiveMarkerServer>(new interactive_markers::InteractiveMarkerServer("iauv_commander/marker_server"));
+    server = std::make_shared<interactive_markers::InteractiveMarkerServer>("iauv_commander/marker_server");
 
     ros::Subscriber sub = nh.subscribe("iauv_commander/instruction", 1000, instructionCB);
 
