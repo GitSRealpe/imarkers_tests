@@ -8,7 +8,12 @@ After an instruction marker has been created in the HRI and uploaded to the inst
 
 General flow diagram
 
-![flow_diagram](./media/fig.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/GitSRealpe/optihrov_colab/main/media/fig_dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/GitSRealpe/optihrov_colab/main/media/fig_light.svg">
+  <img alt="Shows an illustrated sun in light mode and a moon with stars in dark mode." src="https://raw.githubusercontent.com/GitSRealpe/optihrov_colab/main/media/fig_dark.svg">
+</picture>
+
 
 Steps for instruction creation example execution:
 In a linux terminal, execute
