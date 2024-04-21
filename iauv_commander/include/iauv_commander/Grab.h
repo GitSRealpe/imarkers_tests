@@ -13,7 +13,7 @@ namespace iauv_commander
     private:
     public:
         Grab();
-        Grab(iauv_commander_msgs::InstructionConstPtr msg, std::shared_ptr<interactive_markers::InteractiveMarkerServer> server);
+        Grab(iauv_commander_msgs::InstructionConstPtr msg, std::shared_ptr<interactive_markers::InteractiveMarkerServer> server, ros::NodeHandle &nh);
 
         void markerFeedback(const visualization_msgs::InteractiveMarkerFeedbackConstPtr &feedback);
     };

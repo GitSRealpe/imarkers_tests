@@ -1,0 +1,8 @@
+<launch>
+    <!-- launch octomap node -->
+    <!-- param= robot collision box -->
+
+    <group ns="/">
+        <node name="iauv_planner" pkg="iauv_planner" type="iauv_planner_node" output="screen"/>
+    </group>
+</launch>

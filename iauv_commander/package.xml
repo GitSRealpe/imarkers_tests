@@ -38,6 +38,7 @@
   <depend>std_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>iauv_commander_msgs</depend>
+  <depend>iauv_planner</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>

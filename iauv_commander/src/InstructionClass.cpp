@@ -7,15 +7,15 @@ namespace iauv_commander
     {
         std::cout << "nameless print \n";
     }
-    InstructionClass::InstructionClass(iauv_commander_msgs::InstructionConstPtr msg, std::shared_ptr<interactive_markers::InteractiveMarkerServer> server) : server_(server), msg_(msg)
+    InstructionClass::InstructionClass(iauv_commander_msgs::InstructionConstPtr msg, std::shared_ptr<interactive_markers::InteractiveMarkerServer> server, ros::NodeHandle &nh) : server_(server), msg_(msg)
     {
-        std::cout << "Defining InstructionClass of type {\" ? \"}\n";
+        std::cout << "Defining InstructionClass for type " << msg_->instruction_type << "\n";
     }
 
-    void InstructionClass::createMarker(bool x_mov, bool y_mov, bool z_mov, bool x_rot, bool y_rot, bool z_rot)
+    visualization_msgs::InteractiveMarker InstructionClass::createMarker(bool x_mov, bool y_mov, bool z_mov, bool x_rot, bool y_rot, bool z_rot)
     {
-        std::cout << "creando marcador\n";
-        // control_ = visualization_msgs::InteractiveMarkerControl();
+        std::cout << "creando marker\n";
+        int_marker_ = visualization_msgs::InteractiveMarker();
         int_marker_.header.frame_id = "world_ned";
         int_marker_.pose.position.x = msg_->marker_position.x;
         int_marker_.pose.position.y = msg_->marker_position.y;
@@ -25,6 +25,7 @@ namespace iauv_commander
         int_marker_.name = msg_->marker_name;
         int_marker_.description = msg_->marker_name;
 
+        control_ = visualization_msgs::InteractiveMarkerControl();
         control_.always_visible = true;
         control_.orientation.w = 1;
         if (x_mov)
@@ -75,5 +76,7 @@ namespace iauv_commander
             control_.interaction_mode = visualization_msgs::InteractiveMarkerControl::ROTATE_AXIS;
             int_marker_.controls.push_back(control_);
         }
+
+        return int_marker_;
     }
 }

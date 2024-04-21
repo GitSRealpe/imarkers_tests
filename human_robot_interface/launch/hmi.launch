@@ -2,8 +2,4 @@
 
     <node name="hmi_launcher" pkg="human_robot_interface" type="main"></node>
 
-    <node name="world2ned" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 3.1415 world world_ned 100"/>
-
-    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find human_robot_interface)/config/cfg.rviz"/>
-
 </launch>

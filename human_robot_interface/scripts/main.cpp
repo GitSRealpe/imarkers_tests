@@ -16,14 +16,14 @@ int main(int argc, char **argv)
     // input fields that come from the GUI
     instruc.robot_name = "girona1000";
     instruc.marker_name = "goal1";
-    instruc.instruction_type = "grab";
-    instruc.marker_position.x = 0;
+    instruc.instruction_type = "moveto";
+    instruc.marker_position.x = 2;
     instruc.marker_position.y = 0;
     instruc.marker_position.z = 0;
 
-    instruc.marker_color.r = 1;
-    instruc.marker_color.g = 1;
-    instruc.marker_color.b = 1;
+    instruc.marker_color.r = 0.82;
+    instruc.marker_color.g = 0.82;
+    instruc.marker_color.b = 0.27;
     instruc.marker_color.a = 1;
 
     iauv_commander_msgs::Params param;

@@ -1,5 +1,10 @@
 <launch>
 
-    <node name="commander_node_launcher" pkg="iauv_commander" type="main"></node>
+    <node name="world2ned" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 3.1415 world world_ned 100"/>
+
+    <node name="commander_node_launcher" pkg="iauv_commander" type="main" output="screen"></node>
+    <include file="$(find iauv_planner)/launch/planner_node.launch"/>
+
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find iauv_commander)/config/cfg.rviz"/>
 
 </launch>

@@ -10,9 +10,13 @@ namespace iauv_commander
     class InstructionClass
     {
     private:
+        visualization_msgs::InteractiveMarker int_marker_;
+        visualization_msgs::InteractiveMarkerControl control_;
+        iauv_commander_msgs::InstructionConstPtr msg_;
+
     public:
         InstructionClass();
-        InstructionClass(iauv_commander_msgs::InstructionConstPtr msg, std::shared_ptr<interactive_markers::InteractiveMarkerServer> server);
+        InstructionClass(iauv_commander_msgs::InstructionConstPtr msg, std::shared_ptr<interactive_markers::InteractiveMarkerServer> server, ros::NodeHandle &nh);
         // ~InstructionClass();
 
         /**
@@ -25,12 +29,7 @@ namespace iauv_commander
          * @param y_rot enable marker rotation in x_axis
          * @param z_rot enable marker rotation in x_axis
          */
-        void createMarker(bool x_mov, bool y_mov, bool z_mov, bool x_rot, bool y_rot, bool z_rot);
-
-        iauv_commander_msgs::InstructionConstPtr msg_;
-
-        visualization_msgs::InteractiveMarker int_marker_;
-        visualization_msgs::InteractiveMarkerControl control_;
+        visualization_msgs::InteractiveMarker createMarker(bool x_mov, bool y_mov, bool z_mov, bool x_rot, bool y_rot, bool z_rot);
 
         std::shared_ptr<interactive_markers::InteractiveMarkerServer> server_;
     };

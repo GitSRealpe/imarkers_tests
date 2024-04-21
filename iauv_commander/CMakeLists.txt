@@ -30,6 +30,7 @@ list(APPEND CATKIN_SOURCES
     std_msgs
     geometry_msgs
     iauv_commander_msgs
+    iauv_planner
   )
 
 find_package(catkin REQUIRED COMPONENTS ${CATKIN_SOURCES} )
