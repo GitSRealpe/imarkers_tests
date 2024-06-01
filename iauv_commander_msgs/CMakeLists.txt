@@ -13,7 +13,7 @@ find_package(catkin REQUIRED COMPONENTS ${CATKIN_SOURCES} message_generation act
 add_message_files(
   FILES
   Instruction.msg
-  Params.msg
+  Param.msg
 )
 
 generate_messages(

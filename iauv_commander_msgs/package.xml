@@ -5,7 +5,7 @@
   <description>
     iauv_commander_msgs provides messages for the iauv_commander pkg
   </description>
-  <maintainer email="srealper@udg.edu">SRealpe</maintainer>
+  <maintainer email="todo@todo.com">SRealpe</maintainer>
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
